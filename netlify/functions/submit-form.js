@@ -1,3 +1,5 @@
+const querystring = require('querystring');
+
 exports.handler = async (event, context) => {
     // Only allow POST requests
     if (event.httpMethod !== 'POST') {
@@ -8,7 +10,7 @@ exports.handler = async (event, context) => {
     }
 
     // Parse the form data from the request body
-    const formData = JSON.parse(event.body);
+    const body = querystring.parse(event.body); // Parse URL-encoded data
 
     // Get the Formspree form ID from the environment variable
     const formspreeUrl = `https://formspree.io/f/${process.env.FORMSPREE_FORM_ID}`;
@@ -18,7 +20,7 @@ exports.handler = async (event, context) => {
         const response = await fetch(formspreeUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(formData),
+            body: JSON.stringify(body), // Convert to JSON
         });
 
         // Check if the submission was successful

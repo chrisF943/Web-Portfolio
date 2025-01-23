@@ -62,18 +62,15 @@ document.getElementById('contact-form').addEventListener('submit', async (event)
     const form = event.target;
     const formData = new FormData(form);
 
-    // Convert form data to JSON
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    // Convert form data to URL-encoded format
+    const urlEncodedData = new URLSearchParams(formData).toString();
 
     try {
         // Send the form data to the Netlify function
         const response = await fetch(form.action, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: urlEncodedData,
         });
 
         if (response.ok) {
