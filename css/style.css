@@ -1,0 +1,409 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(-45deg, #00b4db, #0083b0, #005b96, #003f5c);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+body.dark-mode .about {
+    background-color: #1a1a1a; /* Dark background for contrast */
+}
+
+body.dark-mode .about-text h2 {
+    color: #ffffff; /* White text for dark mode */
+}
+
+body.dark-mode .about-text p {
+    color: #e0e0e0; /* Light gray text for dark mode */
+}
+
+/* Projects Section in Dark Mode */
+body.dark-mode .projects {
+    background-color: #1a1a1a; /* Slightly lighter than the body background */
+}
+
+body.dark-mode .project-item {
+    background-color: #2e4980; /* Slightly lighter than the projects section */
+    color: #ffffff;
+    border: 1px solid #444; /* Add a subtle border for better distinction */
+}
+
+/* Contact Section in Dark Mode */
+body.dark-mode .contact {
+    background-color: #1f1f1f; /* Slightly lighter than the body background */
+}
+
+body.dark-mode .contact input,
+body.dark-mode .contact textarea {
+    background-color: #ffffff; /* Slightly lighter than the contact section */
+    color: #121212;
+    border: 1px solid #444; /* Add a subtle border for better distinction */
+}
+
+body.dark-mode .contact button {
+    background-color: #ffffff; /* Slightly lighter than the contact section */
+    color: #121212;
+}
+
+body.dark-mode .contact button:hover {
+    background: #0083b0;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-toggle:hover {
+    color: #0083b0;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ffffff;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    color: #0083b0;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: #333;
+    padding: 10px 0;
+    position: relative;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.icon {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #0083b0;
+}
+
+/* Hero Section with Animated Gradient */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(-45deg, #00b4db, #0083b0, #005b96, #003f5c);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #fff; /* White text for better contrast */
+}
+
+.hero p {
+    font-size: 18px;
+    color: #e0e0e0; /* Light gray text for better contrast */
+}
+
+/* About Me Section */
+.about {
+    padding: 80px 0;
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center; /* Vertically center the text and image */
+    gap: 40px; /* Space between text and image */
+}
+
+.about-text {
+    flex: 1; /* Take up remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.about-image {
+    flex: 0 0 300px; /* Fixed width for the image */
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Projects Section */
+.projects {
+    padding: 80px 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Project Title Hyperlinks */
+.project-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.project-item a:hover {
+    color: #0083b0;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background: #0083b0;
+}
+
+/* Confirmation Message */
+#confirmation-message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#confirmation-message.hidden {
+    display: none;
+}
+
+#confirmation-message i {
+    font-size: 48px;
+    color: #3a9e77; /* Green checkmark */
+    margin-bottom: 10px;
+}
+
+#confirmation-message p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    /* Adjust for tablets (e.g., iPad) */
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust for smaller tablets and large phones */
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust for mobile phones */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .about-text h2 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact form {
+        width: 100%;
+    }
+}

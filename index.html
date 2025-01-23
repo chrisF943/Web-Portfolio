@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<!-- Header with Icons -->
+<header>
+    <div class="container">
+        <div class="icons">
+            <a href="https://github.com/chrisF943" target="_blank" class="icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/christopher-faris-58145328a/" target="_blank" class="icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#contact" class="icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <!-- Dark Mode Toggle -->
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+        </button>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I'm a creative professional passionate about building amazing things.</p>
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Add a brief introduction about yourself here. Highlight your skills, experience, and what makes you
+                    unique.</p>
+            </div>
+            <div class="about-image">
+                <img src="img/me.jpeg" alt="Photo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <a href="https://example.com/project1" target="_blank">
+                    <h3>Project Title 1</h3>
+                </a>
+                <p>Add a short description of your project here.</p>
+            </div>
+            <div class="project-item">
+                <a href="https://example.com/project2" target="_blank">
+                    <h3>Project Title 2</h3>
+                </a>
+                <p>Add a short description of your project here.</p>
+            </div>
+            <div class="project-item">
+                <a href="https://example.com/project3" target="_blank">
+                    <h3>Project Title 3</h3>
+                </a>
+                <p>Add a short description of your project here.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out! I'd love to hear from you.</p>
+        <form id="contact-form" action="https://formspree.io/f/xjkgbnek" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="confirmation-message" class="hidden">
+            <i class="fas fa-check-circle"></i>
+            <p>Thank you for your message, I will get back to you shortly.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>My Portfolio. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- External JavaScript -->
+<script src="js/script.js"></script>
+</body>
+</html>
