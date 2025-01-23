@@ -85,7 +85,7 @@
     <div class="container">
         <h2>Contact Me</h2>
         <p>Feel free to reach out! I'd love to hear from you.</p>
-        <form id="contact-form" action="https://formspree.io/f/xjkgbnek" method="POST">
+        <form id="contact-form" action="/.netlify/functions/submit-form" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>

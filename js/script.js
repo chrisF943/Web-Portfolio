@@ -55,3 +55,35 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
             console.error('Error:', error);
         });
 });
+
+document.getElementById('contact-form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Convert form data to JSON
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    try {
+        // Send the form data to the Netlify function
+        const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            // Hide the form and show the confirmation message
+            form.classList.add('hidden');
+            document.getElementById('confirmation-message').classList.remove('hidden');
+        } else {
+            alert('Form submission failed. Please try again.');
+        }
+    } catch (error) {
+        alert('An error occurred. Please try again.');
+    }
+});
