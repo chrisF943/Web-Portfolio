@@ -32,9 +32,21 @@ body.dark-mode .projects {
 }
 
 body.dark-mode .project-item {
-    background-color: #2e4980; /* Slightly lighter than the projects section */
-    color: #ffffff;
-    border: 1px solid #444; /* Add a subtle border for better distinction */
+    background: #f0f0f0; /* Lightish grey-white background */
+    color: #333333;
+    border: 1px solid #dddddd; /* Add a subtle border for better distinction */
+}
+
+body.dark-mode .project-item p {
+    color: #666666; /* Grayish color for descriptions */
+}
+
+body.dark-mode .project-item a {
+    color: #333; /* Dark color for links in dark mode */
+}
+
+body.dark-mode .project-item a:hover {
+    color: #0083b0; /* Blue color for hover in dark mode */
 }
 
 /* Contact Section in Dark Mode */
@@ -47,6 +59,10 @@ body.dark-mode .contact textarea {
     background-color: #ffffff; /* Slightly lighter than the contact section */
     color: #121212;
     border: 1px solid #444; /* Add a subtle border for better distinction */
+}
+
+body.dark-mode #confirmation-message p {
+    color: #666666;
 }
 
 body.dark-mode .contact button {
