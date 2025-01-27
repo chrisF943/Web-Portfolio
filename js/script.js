@@ -24,6 +24,40 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
+// Add Carousel functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('.carousel__viewport');
+    const prevButtons = document.querySelectorAll('.carousel__prev');
+    const nextButtons = document.querySelectorAll('.carousel__next');
+    const slides = document.querySelectorAll('.carousel__slide');
+
+    // Function to scroll to a specific slide
+    function scrollToSlide(index) {
+        const slide = slides[index];
+        if (slide) {
+            slide.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+    }
+
+    // Add event listeners to previous buttons
+    prevButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const currentSlide = Array.from(slides).findIndex(slide => slide.getBoundingClientRect().left >= 0);
+            const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+            scrollToSlide(prevSlide);
+        });
+    });
+
+    // Add event listeners to next buttons
+    nextButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const currentSlide = Array.from(slides).findIndex(slide => slide.getBoundingClientRect().left >= 0);
+            const nextSlide = (currentSlide + 1) % slides.length;
+            scrollToSlide(nextSlide);
+        });
+    });
+});
+
 // Handle form submission
 document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way

@@ -33,7 +33,7 @@
 <section class="hero">
     <div class="container">
         <h1>Welcome to My Portfolio</h1>
-        <p>I'm a creative professional passionate about building amazing things.</p>
+        <p>I'm an enthusiastic student and programmer, always seeking to create and problem solve.</p>
     </div>
 </section>
 
@@ -43,8 +43,13 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>About Me</h2>
-                <p>Add a brief introduction about yourself here. Highlight your skills, experience, and what makes you
-                    unique.</p>
+                <p>As a student on the verge of completing my BAS degree in Computing Technology
+                    and Software Development at Valencia College, I look forward to a career where I
+                    can make an impact on meaningful projects. I'm a results-driven individual
+                    eager to learn, grow and collaborate with others. My favorite language is Python and
+                    some of my skills include working with APIs, SQL databases, AI/ML, data science and some
+                    web development.
+                </p>
             </div>
             <div class="about-image">
                 <img src="img/me.jpeg" alt="Photo">
@@ -57,26 +62,104 @@
 <section class="projects">
     <div class="container">
         <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project-item">
-                <a href="https://example.com/project1" target="_blank">
-                    <h3>Project Title 1</h3>
-                </a>
-                <p>Add a short description of your project here.</p>
-            </div>
-            <div class="project-item">
-                <a href="https://example.com/project2" target="_blank">
-                    <h3>Project Title 2</h3>
-                </a>
-                <p>Add a short description of your project here.</p>
-            </div>
-            <div class="project-item">
-                <a href="https://example.com/project3" target="_blank">
-                    <h3>Project Title 3</h3>
-                </a>
-                <p>Add a short description of your project here.</p>
-            </div>
-        </div>
+        <section class="carousel" aria-label="Gallery">
+            <ol class="carousel__viewport" style="list-style-type: none">
+                <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://github.com/chrisF943/Seminar-Project" target="_blank">
+                                <h3>Collecting and Analyzing Stock Data</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>
+                <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://github.com/chrisF943/Python-Hashing" target="_blank">
+                                <h3>Hashing with JSON Data</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>
+                <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://github.com/chrisF943/CEN4802" target="_blank">
+                                <h3>Practical Pipeline Environment</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>
+                <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://github.com/chrisF943/Gemini-Python-Tips" target="_blank">
+                                <h3>Learning with Gemini (Work in Progress)</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>
+                <li id="carousel__slide5" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://github.com/chrisF943/Password-Manager" target="_blank">
+                                <h3>Password Manager (Work in Progress)</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>
+                <!--<li id="carousel__slide6" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="project-item">
+                            <a href="https://google.com" target="_blank">
+                                <h3>Open Source Contributions</h3>
+                            </a>
+                            <p>Add a short description of your project here.</p>
+                        </div>
+                        <button class="carousel__prev" aria-label="Previous Slide">&larr;</button>
+                        <button class="carousel__next" aria-label="Next Slide">&rarr;</button>
+                    </div>
+                </li>-->
+            </ol>
+            <aside class="carousel__navigation">
+                <ol class="carousel__navigation-list">
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide1" class="carousel__navigation-button" aria-label="Go to slide 1"></a>
+                    </li>
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide2" class="carousel__navigation-button" aria-label="Go to slide 2"></a>
+                    </li>
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide3" class="carousel__navigation-button" aria-label="Go to slide 3"></a>
+                    </li>
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide4" class="carousel__navigation-button" aria-label="Go to slide 4"></a>
+                    </li>
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide5" class="carousel__navigation-button" aria-label="Go to slide 5"></a>
+                    </li>
+                    <!--<li class="carousel__navigation-item">
+                        <a href="#carousel__slide6" class="carousel__navigation-button" aria-label="Go to slide 6"></a>
+                    </li>-->
+                </ol>
+            </aside>
+        </section>
     </div>
 </section>
 
