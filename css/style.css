@@ -31,6 +31,10 @@ body.dark-mode .skills {
     background-color: #e0e0e0;
 }
 
+body.dark-mode .skills h2 {
+    color: #121212;
+}
+
 body.dark-mode .skill-item {
     background-color: #1a1a1a;
 }
