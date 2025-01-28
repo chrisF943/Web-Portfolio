@@ -206,7 +206,7 @@ header {
 }
 
 .about .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -224,7 +224,7 @@ header {
 
 .about-text h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .about-text p {
@@ -245,7 +245,7 @@ header {
 
 /* Skills Section */
 .skills {
-    padding: 40px 0 150px;
+    padding: 40px 0 80px;
     background: #f4f4f4;
     text-align: center;
 }
@@ -253,6 +253,11 @@ header {
 .skills h2 {
     font-size: 36px;
     margin-bottom: 70px;
+}
+
+.soft-skills {
+    font-size: 18px;
+    color: #333;
 }
 
 .skills-grid {
@@ -327,7 +332,7 @@ header {
 
 .projects h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
 }
 
 .project-item {
@@ -468,7 +473,7 @@ header {
 
 /* Contact Section */
 .contact {
-    padding: 80px 0;
+    padding: 20px 0 60px;
     text-align: center;
 }
 
@@ -545,6 +550,11 @@ footer {
 
 footer p {
     margin: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #fff;
     font-size: 14px;
 }
 
