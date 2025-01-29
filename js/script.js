@@ -29,34 +29,48 @@ document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.carousel__viewport');
     const prevButtons = document.querySelectorAll('.carousel__prev');
     const nextButtons = document.querySelectorAll('.carousel__next');
-    const slides = document.querySelectorAll('.carousel__slide');
+    const slides = Array.from(document.querySelectorAll('.carousel__slide'));
+    const indicators = document.querySelectorAll('.carousel__indicator');
 
-    // Function to scroll to a specific slide
+    let currentIndex = 0; // Track the active slide
+
     function scrollToSlide(index) {
-        const slide = slides[index];
-        if (slide) {
-            slide.scrollIntoView({behavior: 'smooth', block: 'start'});
-        }
+        currentIndex = index;
+        const slideWidth = slides[0].clientWidth;
+        carousel.scrollTo({left: slideWidth * index, behavior: 'smooth'});
+        updateIndicators(index);
     }
 
-    // Add event listeners to previous buttons
-    prevButtons.forEach((button) => {
+    function updateIndicators(activeIndex) {
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === activeIndex);
+        });
+    }
+
+    prevButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const currentSlide = Array.from(slides).findIndex(slide => slide.getBoundingClientRect().left >= 0);
-            const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
-            scrollToSlide(prevSlide);
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            scrollToSlide(prevIndex);
         });
     });
 
-    // Add event listeners to next buttons
-    nextButtons.forEach((button) => {
+    nextButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const currentSlide = Array.from(slides).findIndex(slide => slide.getBoundingClientRect().left >= 0);
-            const nextSlide = (currentSlide + 1) % slides.length;
-            scrollToSlide(nextSlide);
+            const nextIndex = (currentIndex + 1) % slides.length;
+            scrollToSlide(nextIndex);
         });
     });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent unwanted jumping
+            scrollToSlide(index);
+        });
+    });
+
+    updateIndicators(0);
 });
+
 
 // Handle form submission
 document.getElementById('contact-form').addEventListener('submit', function (event) {

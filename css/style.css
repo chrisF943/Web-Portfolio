@@ -392,6 +392,8 @@ header {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .carousel__viewport::-webkit-scrollbar {
@@ -471,7 +473,8 @@ header {
     transition: background 0.3s ease;
 }
 
-.carousel__navigation-button:hover {
+.carousel__navigation-button:hover,
+.carousel__indicator.active {
     background: #0083b0;
 }
 
