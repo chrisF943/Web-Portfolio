@@ -4,14 +4,9 @@ body.dark-mode {
     color: #ffffff;
 }
 
-body.dark-mode header {
+body.dark-mode header,
+body.dark-mode footer {
     background-color: #1a1a1a;
-}
-
-body.dark-mode .hero {
-    background: linear-gradient(-45deg, #00b4db, #0083b0, #005b96, #003f5c);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
 }
 
 body.dark-mode .about {
@@ -63,10 +58,6 @@ body.dark-mode .project-item:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for dark mode */
 }
 
-body.dark-mode .project-item p {
-    color: #666666;
-}
-
 body.dark-mode .project-item a {
     color: #333;
 }
@@ -87,6 +78,10 @@ body.dark-mode .contact textarea {
     border: 1px solid #444;
 }
 
+body.dark-mode .contact p {
+    color: #ffffff;
+}
+
 body.dark-mode #confirmation-message p {
     color: #666666;
 }
@@ -97,11 +92,7 @@ body.dark-mode .contact button {
 }
 
 body.dark-mode .contact button:hover {
-    background: #0083b0;
-}
-
-body.dark-mode footer {
-    background-color: #1f1f1f;
+    background-color: #0083b0;
 }
 
 /* Dark Mode Toggle Button */
@@ -174,7 +165,7 @@ header {
 
 /* Hero Section with Animated Gradient */
 .hero {
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     background: linear-gradient(-45deg, #00b4db, #0083b0, #005b96, #003f5c);
     background-size: 400% 400%;
@@ -233,7 +224,7 @@ header {
 
 .about-text p {
     font-size: 18px;
-    color: #666;
+    color: #333;
     line-height: 1.6;
 }
 
@@ -250,7 +241,7 @@ header {
 /* Skills Section */
 .skills {
     padding: 40px 0 80px;
-    background: #f4f4f4;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
@@ -276,7 +267,7 @@ header {
     position: relative;
     width: 100px;
     height: 100px;
-    background: #fff;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -301,7 +292,7 @@ header {
     top: 110%;
     left: 50%;
     transform: translateX(-50%);
-    background: #333;
+    background-color: #333;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -321,7 +312,7 @@ header {
 /* Projects Section */
 .projects {
     padding: 40px 0;
-    background: #f4f4f4;
+    background-color: #f4f4f4;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -340,7 +331,7 @@ header {
 }
 
 .project-item {
-    background: #fff;
+    background-color: #fff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -362,7 +353,7 @@ header {
 
 .project-item p {
     font-size: 16px;
-    color: #666;
+    color: #333;
 }
 
 .project-item a {
@@ -423,7 +414,7 @@ header {
     top: 50%;
     transform: translateY(-50%);
     padding: 15px;
-    background: #242424;
+    background-color: #242424;
     color: #fff;
     text-decoration: none;
     border-radius: 50%;
@@ -453,6 +444,8 @@ header {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    padding: 0;
+    margin: 0;
 }
 
 .carousel__navigation-list {
@@ -465,7 +458,7 @@ header {
 
 .carousel__navigation-button {
     padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -475,7 +468,7 @@ header {
 
 .carousel__navigation-button:hover,
 .carousel__indicator.active {
-    background: #0083b0;
+    background-color: #0083b0;
 }
 
 /* Contact Section */
@@ -491,7 +484,7 @@ header {
 
 .contact p {
     font-size: 18px;
-    color: #666;
+    color: #333;
     margin-bottom: 40px;
 }
 
@@ -514,7 +507,7 @@ header {
 
 .contact button {
     padding: 10px 20px;
-    background: #333;
+    background-color: #333;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -523,7 +516,7 @@ header {
 }
 
 .contact button:hover {
-    background: #0083b0;
+    background-color: #0083b0;
 }
 
 /* Confirmation Message */
@@ -549,7 +542,7 @@ header {
 
 /* Footer */
 footer {
-    background: #333;
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
