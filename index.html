@@ -135,7 +135,7 @@
             <div class="soft-skills">
                 <p>
                     Besides my technical skills, I am an avid team collaborator and leader, excelling
-                    under pressure and able to perform in fast-paced environments. I believe communication
+                    under pressure and able to perform in fast-paced environments. <br> I believe communication
                     is key to success and am always looking to learn and grow in multiple facets.
                 </p>
             </div>
@@ -283,7 +283,7 @@
     <div class="container">
         <h2>Contact Me</h2>
         <p>Feel free to reach out! I'd love to hear from you.</p>
-        <form id="contact-form" method="POST" data-netlify="true">
+        <form id="contact-form" action="/.netlify/functions/submit-form" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
