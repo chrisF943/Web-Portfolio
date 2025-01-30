@@ -73,65 +73,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Handle form submission
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
-
-    // Hide the form
-    const form = document.getElementById('contact-form');
-    form.classList.add('hidden'); // Add the 'hidden' class to the form
-
-    // Show the confirmation message
-    const confirmationMessage = document.getElementById('confirmation-message');
-    confirmationMessage.classList.remove('hidden'); // Remove the 'hidden' class from the confirmation message
-
-    // Submit the form data to Formspree
-    fetch(this.action, {
-        method: this.method,
-        body: new FormData(this),
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log('Form submitted successfully!');
-            } else {
-                console.error('Form submission failed.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
-
-document.getElementById('contact-form').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent the default form submission
-
-    const form = event.target;
-    const formData = new FormData(form);
-
-    // Convert form data to JSON
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
-
-    try {
-        // Send the form data to the Netlify function
-        const response = await fetch(form.action, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-            // Hide the form and show the confirmation message
-            form.classList.add('hidden');
-            document.getElementById('confirmation-message').classList.remove('hidden');
-        } else {
-            alert('Form submission failed. Please try again.');
-        }
-    } catch (error) {
-        alert('An error occurred. Please try again.');
-    }
-});
+// document.getElementById('contact-form').addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent the form from submitting the traditional way
+//
+//     // Hide the form
+//     const form = document.getElementById('contact-form');
+//     form.classList.add('hidden'); // Add the 'hidden' class to the form
+//
+//     // Show the confirmation message
+//     const confirmationMessage = document.getElementById('confirmation-message');
+//     confirmationMessage.classList.remove('hidden'); // Remove the 'hidden' class from the confirmation message
+//
+//     // Submit the form data to Formspree
+//     fetch(this.action, {
+//         method: this.method,
+//         body: new FormData(this),
+//         headers: {
+//             'Accept': 'application/json'
+//         }
+//     })
+//         .then(response => {
+//             if (response.ok) {
+//                 console.log('Form submitted successfully!');
+//             } else {
+//                 console.error('Form submission failed.');
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
+// });
+//
+// document.getElementById('contact-form').addEventListener('submit', async (event) => {
+//     event.preventDefault(); // Prevent the default form submission
+//
+//     const form = event.target;
+//     const formData = new FormData(form);
+//
+//     // Convert form data to JSON
+//     const data = {};
+//     formData.forEach((value, key) => {
+//         data[key] = value;
+//     });
+//
+//     try {
+//         // Send the form data to the Netlify function
+//         const response = await fetch(form.action, {
+//             method: 'POST',
+//             headers: {'Content-Type': 'application/json'},
+//             body: JSON.stringify(data),
+//         });
+//
+//         if (response.ok) {
+//             // Hide the form and show the confirmation message
+//             form.classList.add('hidden');
+//             document.getElementById('confirmation-message').classList.remove('hidden');
+//         } else {
+//             alert('Form submission failed. Please try again.');
+//         }
+//     } catch (error) {
+//         alert('An error occurred. Please try again.');
+//     }
+// });
