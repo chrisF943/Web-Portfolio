@@ -6,3 +6,5 @@ text upon hover. Implemented a contact form using JavaScript to communicate with
 Netlify function.
 
 Hosted on Netlify to take advantage of continuous deployment and function features.
+
+Visit my live portfolio [here](https://chrisfaris.netlify.app/)
