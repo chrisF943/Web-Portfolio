@@ -360,6 +360,11 @@ header {
     margin-bottom: -20px;
 }
 
+.projects h3 {
+    font-size: 18px;
+    margin-bottom: -5px;
+}
+
 .project-item {
     background-color: #ffffff;
     padding: 40px;
