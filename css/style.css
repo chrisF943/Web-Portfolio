@@ -57,7 +57,8 @@ body.dark-mode .carousel__navigation-button {
     background-color: #f0f0f0;
 }
 
-body.dark-mode .carousel__navigation-button:hover {
+body.dark-mode .carousel__navigation-button:hover,
+body.dark-mode .carousel__indicator.active {
     background-color: #0083b0;
 }
 
