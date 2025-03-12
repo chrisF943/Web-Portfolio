@@ -341,6 +341,11 @@ header {
     visibility: visible;
 }
 
+.skill-item.touch .skill-info {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Projects Section */
 .projects {
     padding: 40px 0;
