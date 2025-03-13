@@ -640,6 +640,7 @@ footer a {
 
     .projects {
         padding-bottom: 60px; /* Increase bottom padding to prevent cutoff */
+        overflow: visible;
     }
 
     .skill-info {
