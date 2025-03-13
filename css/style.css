@@ -628,6 +628,29 @@ footer a {
 
 @media (max-width: 768px) {
     /* Adjust for smaller tablets and large phones */
+    .skill-info {
+        position: fixed; /* Change to fixed positioning on mobile */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000; /* Even higher z-index for mobile */
+        width: 80%; /* Adjust width for mobile screens */
+        max-width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Add a semi-transparent overlay when info is visible */
+    .skill-item.touch::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
     .hero h1 {
         font-size: 32px;
     }
