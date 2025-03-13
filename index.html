@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
 <body>
 <!-- Header with Icons -->
 <header>
-    <div class="container">
-        <div class="icons">
-            <a href="https://github.com/chrisF943" target="_blank" class="icon">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/christopher-faris-58145328a/" target="_blank" class="icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#contact" class="icon">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-        <!-- Dark Mode Toggle -->
-        <button id="dark-mode-toggle" class="dark-mode-toggle">
-            <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+    <div class="icons">
+        <a href="https://github.com/chrisF943" target="_blank" class="icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/christopher-faris-58145328a/" target="_blank" class="icon"
+           aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#contact" class="icon" aria-label="Contact">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
         </button>
     </div>
 </header>
@@ -35,7 +25,7 @@
     <div class="container">
         <h1>Welcome to My Portfolio</h1>
         <p>
-            I'm an enthusiastic student and programmer, always seeking to create and problem solve.
+            I'm an enthusiastic student and developer, always seeking to create and problem solve.
         </p>
     </div>
 </section>
@@ -312,4 +302,12 @@
 <!-- External JavaScript -->
 <script src="js/script.js"></script>
 </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 </html>
