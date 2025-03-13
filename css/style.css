@@ -638,11 +638,6 @@ footer a {
         height: 300px;
     }
 
-    .projects {
-        padding-bottom: 60px; /* Increase bottom padding to prevent cutoff */
-        overflow: visible;
-    }
-
     .skill-info {
         position: fixed; /* Change to fixed positioning on mobile */
         top: 50%;
