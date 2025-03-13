@@ -635,8 +635,9 @@ footer a {
     /* Adjust carousel height to accommodate the moved indicators */
     .carousel {
         margin-bottom: 40px;
+        height: 300px;
     }
-    
+
     .projects {
         padding-bottom: 60px; /* Increase bottom padding to prevent cutoff */
     }
