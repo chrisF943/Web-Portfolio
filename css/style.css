@@ -628,6 +628,19 @@ footer a {
 
 @media (max-width: 768px) {
     /* Adjust for smaller tablets and large phones */
+    .carousel__navigation {
+        bottom: -30px; /* Move indicators down */
+    }
+
+    /* Adjust carousel height to accommodate the moved indicators */
+    .carousel {
+        margin-bottom: 40px;
+    }
+    
+    .projects {
+        padding-bottom: 60px; /* Increase bottom padding to prevent cutoff */
+    }
+
     .skill-info {
         position: fixed; /* Change to fixed positioning on mobile */
         top: 50%;
@@ -674,6 +687,10 @@ footer a {
 
 @media (max-width: 480px) {
     /* Adjust for mobile phones */
+    .carousel__navigation {
+        bottom: -25px;
+    }
+
     .hero h1 {
         font-size: 28px;
     }
