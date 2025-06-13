@@ -1,133 +1,223 @@
+// DOM Elements
+const darkModeToggle = document.getElementById("dark-mode-toggle")
+const body = document.body
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")
+const mobileMenu = document.querySelector(".mobile-menu")
+const mobileLinks = document.querySelectorAll(".mobile-link")
+const projectSlides = document.querySelectorAll(".project-slide")
+const prevButton = document.querySelector(".carousel-btn.prev")
+const nextButton = document.querySelector(".carousel-btn.next")
+const indicators = document.querySelectorAll(".indicator")
+const navbar = document.querySelector(".navbar")
+const contactForm = document.getElementById("contact-form")
+const confirmationMessage = document.getElementById("confirmation-message")
+
 // Dark Mode Toggle
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
-
-// Check user preference from localStorage
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    body.classList.add('dark-mode');
-    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
-} else {
-    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
-}
-
-// Toggle dark mode
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-
-    // Change icon based on mode
-    if (body.classList.contains('dark-mode')) {
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
-        localStorage.setItem('dark-mode', 'enabled');
+function initDarkMode() {
+    // Check user preference from localStorage
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode")
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>' // Sun icon for dark mode
     } else {
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
-        localStorage.setItem('dark-mode', 'disabled');
-    }
-});
-
-// Add Carousel functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('.carousel__viewport');
-    const prevButtons = document.querySelectorAll('.carousel__prev');
-    const nextButtons = document.querySelectorAll('.carousel__next');
-    const slides = Array.from(document.querySelectorAll('.carousel__slide'));
-    const indicators = document.querySelectorAll('.carousel__indicator');
-
-    let currentIndex = 0; // Track the active slide
-
-    function scrollToSlide(index) {
-        currentIndex = index;
-        const slideWidth = slides[0].clientWidth;
-        carousel.scrollTo({left: slideWidth * index, behavior: 'smooth'});
-        updateIndicators(index);
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>' // Moon icon for light mode
     }
 
-    function updateIndicators(activeIndex) {
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === activeIndex);
-        });
-    }
+    // Toggle dark mode
+    darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode")
 
-    prevButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-            scrollToSlide(prevIndex);
-        });
-    });
-
-    nextButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const nextIndex = (currentIndex + 1) % slides.length;
-            scrollToSlide(nextIndex);
-        });
-    });
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent unwanted jumping
-            scrollToSlide(index);
-        });
-    });
-
-    updateIndicators(0);
-});
-
-
-// Handle form submission
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
-
-    // Hide the form
-    const form = document.getElementById('contact-form');
-    form.classList.add('hidden'); // Add the 'hidden' class to the form
-
-    // Show the confirmation message
-    const confirmationMessage = document.getElementById('confirmation-message');
-    confirmationMessage.classList.remove('hidden'); // Remove the 'hidden' class from the confirmation message
-
-    // Submit the form data to Formspree
-    fetch(this.action, {
-        method: this.method, body: new FormData(this), headers: {
-            'Accept': 'application/json'
+        // Change icon based on mode
+        if (body.classList.contains("dark-mode")) {
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>' // Sun icon for dark mode
+            localStorage.setItem("dark-mode", "enabled")
+        } else {
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>' // Moon icon for light mode
+            localStorage.setItem("dark-mode", "disabled")
         }
     })
-        .then(response => {
-            if (response.ok) {
-                console.log('Form submitted successfully!');
-            } else {
-                console.error('Form submission failed.');
-            }
+}
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+    mobileMenuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active")
+        mobileMenuToggle.innerHTML = mobileMenu.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>'
+    })
+
+    // Close mobile menu when a link is clicked
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active")
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>'
         })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
+    })
 
-document.getElementById('contact-form').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (
+            !mobileMenu.contains(e.target) &&
+            !mobileMenuToggle.contains(e.target) &&
+            mobileMenu.classList.contains("active")
+        ) {
+            mobileMenu.classList.remove("active")
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>'
+        }
+    })
+}
 
-    const form = event.target;
-    const formData = new FormData(form);
+// Project Carousel
+function initProjectCarousel() {
+    let currentSlide = 0
 
-    // Convert form data to JSON
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
+    function showSlide(index) {
+        projectSlides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index)
+        })
+
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle("active", i === index)
+        })
+
+        currentSlide = index
+    }
+
+    // Next slide
+    nextButton.addEventListener("click", () => {
+        const nextIndex = (currentSlide + 1) % projectSlides.length
+        showSlide(nextIndex)
+    })
+
+    // Previous slide
+    prevButton.addEventListener("click", () => {
+        const prevIndex = (currentSlide - 1 + projectSlides.length) % projectSlides.length
+        showSlide(prevIndex)
+    })
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            showSlide(index)
+        })
+    })
+
+    // Auto-advance slides every 5 seconds
+    let slideInterval = setInterval(() => {
+        const nextIndex = (currentSlide + 1) % projectSlides.length
+        showSlide(nextIndex)
+    }, 5000)
+
+    // Pause auto-advance when hovering over carousel
+    const carousel = document.querySelector(".project-carousel")
+    carousel.addEventListener("mouseenter", () => {
+        clearInterval(slideInterval)
+    })
+
+    carousel.addEventListener("mouseleave", () => {
+        slideInterval = setInterval(() => {
+            const nextIndex = (currentSlide + 1) % projectSlides.length
+            showSlide(nextIndex)
+        }, 5000)
+    })
+}
+
+// Navbar scroll effect
+function initNavbarScroll() {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = "var(--shadow-md)"
+            navbar.style.backdropFilter = "blur(10px)"
+            navbar.style.backgroundColor = body.classList.contains("dark-mode")
+                ? "rgba(15, 23, 42, 0.9)"
+                : "rgba(255, 255, 255, 0.9)"
+        } else {
+            navbar.style.boxShadow = "var(--shadow-sm)"
+            navbar.style.backdropFilter = "none"
+            navbar.style.backgroundColor = body.classList.contains("dark-mode") ? "var(--bg-color)" : "var(--bg-color)"
+        }
+    })
+}
+
+// Skills hover for touch devices
+function initSkillsTouch() {
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    // Remove touch class when clicking outside
+    document.addEventListener("click", function(e) {
+        if (!e.target.closest(".skill-card")) {
+            skillCards.forEach(card => card.classList.remove("touch"));
+        }
     });
 
-    try {
-        // Send the form data to the Netlify function
-        const response = await fetch(form.action, {
-            method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data),
+    skillCards.forEach((card) => {
+        card.addEventListener("click", function(e) {
+            // First remove touch class from all other cards
+            skillCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove("touch");
+                }
+            });
+            
+            // Toggle touch class on this card
+            this.classList.toggle("touch");
+            e.stopPropagation();
         });
+    });
+}
 
-        if (response.ok) {
-            // Hide the form and show the confirmation message
-            form.classList.add('hidden');
-            document.getElementById('confirmation-message').classList.remove('hidden');
-        } else {
-            alert('Form submission failed. Please try again.');
+// Contact Form
+function initContactForm() {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault() // Prevent the default form submission
+
+        const formData = new FormData(contactForm)
+        const data = {}
+        formData.forEach((value, key) => {
+            data[key] = value
+        })
+
+        try {
+            // Send the form data to the Netlify function
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data),
+            })
+
+            if (response.ok) {
+                // Hide the form and show the confirmation message
+                contactForm.classList.add("hidden")
+                confirmationMessage.classList.remove("hidden")
+            } else {
+                alert("Form submission failed. Please try again.")
+            }
+        } catch (error) {
+            alert("An error occurred. Please try again.")
         }
-    } catch (error) {
-        alert('An error occurred. Please try again.');
-    }
-});
+    })
+}
+
+// Check if images are loading properly
+function checkImages() {
+    const images = document.querySelectorAll("img")
+
+    images.forEach((img) => {
+        img.onerror = function () {
+            console.error(`Failed to load image: ${img.src}`)
+            // Add a fallback or placeholder
+            this.src = "https://via.placeholder.com/150?text=Image+Not+Found"
+        }
+    })
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    initDarkMode()
+    initMobileMenu()
+    initProjectCarousel()
+    initNavbarScroll()
+    initSkillsTouch()
+    initContactForm()
+    checkImages() // Add this line
+})
