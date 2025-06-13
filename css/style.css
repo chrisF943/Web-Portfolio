@@ -359,7 +359,7 @@ img {
     height: auto;
     object-fit: cover;
     max-height: 400px;
-    object-position: center 30%; /* Adjust to show more of the top of the head */
+    object-position: center 20%;
 }
 
 .about-text {
