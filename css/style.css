@@ -354,6 +354,11 @@ img {
     padding: 1rem 0;
 }
 
+.skills-grid::-webkit-scrollbar { height: 6px; }
+.skills-grid::-webkit-scrollbar-track { background: var(--bg-alt); border-radius: 3px; }
+.skills-grid::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 3px; }
+.skills-grid { scrollbar-width: thin; scrollbar-color: var(--secondary-color) var(--bg-alt); }
+
 .skill-card {
     background-color: var(--bg-card);
     border-radius: var(--radius-md);
@@ -364,7 +369,7 @@ img {
     text-align: center;
     border: 1px solid var(--border-color);
     min-width: 80px;
-    z-index: 1;
+    flex-shrink: 0;
 }
 
 .skill-card:hover {
