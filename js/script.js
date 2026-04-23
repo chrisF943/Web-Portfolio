@@ -166,39 +166,6 @@ function initSkillsTouch() {
     });
 }
 
-// Contact Form
-function initContactForm() {
-    if (!contactForm) return
-    contactForm.addEventListener("submit", async (event) => {
-        event.preventDefault() // Prevent the default form submission
-
-        const formData = new FormData(contactForm)
-        const data = {}
-        formData.forEach((value, key) => {
-            data[key] = value
-        })
-
-        try {
-            // Send the form data to the Netlify function
-            const response = await fetch(contactForm.action, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(data),
-            })
-
-            if (response.ok) {
-                // Hide the form and show the confirmation message
-                contactForm.classList.add("hidden")
-                confirmationMessage.classList.remove("hidden")
-            } else {
-                alert("Form submission failed. Please try again.")
-            }
-        } catch (error) {
-            alert("An error occurred. Please try again.")
-        }
-    })
-}
-
 // Check if images are loading properly
 function checkImages() {
     const images = document.querySelectorAll("img")
