@@ -265,57 +265,21 @@ img {
     z-index: -1;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease 0.2s;
-    animation-fill-mode: both;
-}
-
-.hero-text {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    margin-bottom: 2.5rem;
-    animation: fadeInUp 1s ease 0.4s;
-    animation-fill-mode: both;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    animation: fadeInUp 1s ease 0.6s;
-    animation-fill-mode: both;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Hero Section - Minimal now, merged with about */
+.hero {
+    display: none;
 }
 
 /* About Section */
 .about {
-    background-color: var(--bg-alt);
+    background-color: var(--bg-color);
+    padding: 60px 0;
 }
 
 .about-content {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .about-image {
@@ -323,11 +287,10 @@ img {
 }
 
 .about-image img {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
-    transition: var(--transition);
     object-fit: cover;
     object-position: center 20%;
 }
@@ -336,9 +299,51 @@ img {
     flex: 1;
 }
 
-.about-text p {
+.about-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.section-line {
+    height: 4px;
+    width: 60px;
+    background-color: var(--primary-color);
     margin-bottom: 1.5rem;
+    border-radius: 2px;
+}
+
+.about-title {
     font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.about-tagline {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-container .icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.contact-container .icon:hover {
+    color: var(--primary-hover);
 }
 
 /* Skills Section */
