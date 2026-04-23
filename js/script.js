@@ -1,6 +1,4 @@
 // DOM Elements
-const darkModeToggle = document.getElementById("dark-mode-toggle")
-const body = document.body
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")
 const mobileMenu = document.querySelector(".mobile-menu")
 const mobileLinks = document.querySelectorAll(".mobile-link")
@@ -9,33 +7,6 @@ const prevButton = document.querySelector(".carousel-btn.prev")
 const nextButton = document.querySelector(".carousel-btn.next")
 const indicators = document.querySelectorAll(".indicator")
 const navbar = document.querySelector(".navbar")
-const contactForm = document.getElementById("contact-form")
-const confirmationMessage = document.getElementById("confirmation-message")
-
-// Dark Mode Toggle
-function initDarkMode() {
-    // Check user preference from localStorage
-    if (localStorage.getItem("dark-mode") === "enabled") {
-        body.classList.add("dark-mode")
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>' // Sun icon for dark mode
-    } else {
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>' // Moon icon for light mode
-    }
-
-    // Toggle dark mode
-    darkModeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark-mode")
-
-        // Change icon based on mode
-        if (body.classList.contains("dark-mode")) {
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>' // Sun icon for dark mode
-            localStorage.setItem("dark-mode", "enabled")
-        } else {
-            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>' // Moon icon for light mode
-            localStorage.setItem("dark-mode", "disabled")
-        }
-    })
-}
 
 // Mobile Menu Toggle
 function initMobileMenu() {
@@ -127,14 +98,8 @@ function initNavbarScroll() {
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
             navbar.style.boxShadow = "var(--shadow-md)"
-            navbar.style.backdropFilter = "blur(10px)"
-            navbar.style.backgroundColor = body.classList.contains("dark-mode")
-                ? "rgba(15, 23, 42, 0.9)"
-                : "rgba(255, 255, 255, 0.9)"
         } else {
             navbar.style.boxShadow = "var(--shadow-sm)"
-            navbar.style.backdropFilter = "none"
-            navbar.style.backgroundColor = body.classList.contains("dark-mode") ? "var(--bg-color)" : "var(--bg-color)"
         }
     })
 }
@@ -181,11 +146,9 @@ function checkImages() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-    initDarkMode()
     initMobileMenu()
     initProjectCarousel()
     initNavbarScroll()
     initSkillsTouch()
-    initContactForm()
-    checkImages() // Add this line
+    checkImages()
 })
