@@ -168,6 +168,7 @@ function initSkillsTouch() {
 
 // Contact Form
 function initContactForm() {
+    if (!contactForm) return
     contactForm.addEventListener("submit", async (event) => {
         event.preventDefault() // Prevent the default form submission
 
