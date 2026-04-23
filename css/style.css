@@ -273,7 +273,7 @@ img {
 /* About Section */
 .about {
     background-color: var(--bg-color);
-    padding: 60px 0;
+    padding: 120px 0 60px 0;
 }
 
 .about-content {
@@ -299,34 +299,40 @@ img {
     flex: 1;
 }
 
-.about-text h2 {
-    font-size: 2rem;
+.about-text .about-heading {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.about-text .about-title {
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
 }
 
-.section-line {
-    height: 4px;
-    width: 60px;
-    background-color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    border-radius: 2px;
-}
-
-.about-title {
+.about-text .about-role {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
-.about-tagline {
+.about-text .about-tagline {
     font-size: 1rem;
     color: var(--text-light);
     margin-bottom: 1.5rem;
 }
 
 .about-text p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
     margin-bottom: 1rem;
     line-height: 1.7;
 }
