@@ -249,34 +249,6 @@ export default function RibbonWave() {
       className="relative z-10 py-24 md:py-32 flex flex-col items-center"
       style={{ minHeight: '100vh' }}
     >
-      <div
-        className="text-center px-6"
-        style={{
-          opacity: visible ? 1 : 0,
-          transform: visible ? 'translateY(0)' : 'translateY(30px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
-        }}
-      >
-        <h2
-          className="text-3xl md:text-5xl font-light mb-4"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            color: '#E8E6F0',
-          }}
-        >
-          Exploring the Unknown
-        </h2>
-        <p
-          className="text-base max-w-md mx-auto"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            color: '#7A7A9E',
-          }}
-        >
-          Every line of code is a step into uncharted territory.
-        </p>
-      </div>
-
       <div className="mt-16 md:mt-20 w-full flex justify-center px-4">
         <canvas
           ref={canvasRef}

@@ -53,7 +53,7 @@ export default function Contact() {
             color: '#E8E6F0',
           }}
         >
-          Always willing to connect and chat.
+          Always willing to connect.
         </h2>
 
         <p
@@ -63,8 +63,8 @@ export default function Contact() {
             color: '#7A7A9E',
           }}
         >
-          Feel free to get in touch on any of my platforms. Whether it's about a project,
-          an opportunity, or just to geek out about space and code.
+          Feel free to get in touch on any of my platforms, whether it's about a project,
+          or just to chat.
         </p>
 
         <div className="flex justify-center gap-6 mt-10">

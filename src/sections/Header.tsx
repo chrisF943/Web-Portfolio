@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -10,15 +9,8 @@ export default function Header() {
     // Entrance animation
     const timer = setTimeout(() => setVisible(true), 100);
 
-    const onScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.6);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -32,18 +24,10 @@ export default function Header() {
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(-12px)',
-        background: scrolled ? 'rgba(8, 8, 18, 0.7)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+        background: 'transparent',
       }}
     >
-      <div
-        className="text-sm font-medium tracking-widest"
-        style={{ fontFamily: "'JetBrains Mono', monospace", color: '#7A7A9E' }}
-      >
-        STELLAR.DEV
-      </div>
-
+      <div /> {/* Spacer */}
       <div className="flex items-center gap-3">
         <a
           href="https://www.linkedin.com/in/christopher-faris-58145328a/"

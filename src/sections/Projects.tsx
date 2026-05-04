@@ -51,20 +51,6 @@ const PROJECTS: Project[] = [
     tags: ['Python', 'Data Structures', 'JSON'],
     gradient: 'linear-gradient(135deg, #0f3460 0%, #16213e 100%)',
   },
-  {
-    title: 'Pdf-Agent',
-    description: 'A Python project focused on PDF processing and agent-based automation. Manipulate, extract, and process PDF documents with intelligent automation.',
-    link: 'https://github.com/chrisF943/Pdf-Agent',
-    tags: ['Python', 'Automation'],
-    gradient: 'linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%)',
-  },
-  {
-    title: 'Folder_tree',
-    description: 'A Java project for managing and visualizing folder structures. Build, navigate, and analyze directory trees with ease.',
-    link: 'https://github.com/chrisF943/Folder_tree',
-    tags: ['Java', 'File System'],
-    gradient: 'linear-gradient(135deg, #16213e 0%, #0f3460 100%)',
-  },
 ];
 
 const N = PROJECTS.length;
@@ -167,7 +153,6 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
       ref={sectionRef}
       className="relative z-10 py-32 md:py-44"
       style={{
@@ -176,6 +161,7 @@ export default function Projects() {
         transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
       }}
     >
+      <div id="projects" style={{ scrollMarginTop: '100px' }} />
       <p
         className="text-xs uppercase tracking-widest text-center mb-12"
         style={{
