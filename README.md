@@ -1,38 +1,39 @@
-# Web-Portfolio
+# Christopher Faris | Portfolio
 
-A modern, responsive portfolio website showcasing my skills and projects as a software developer. This single-page application features a clean, professional design with interactive elements and smooth transitions.
+Personal portfolio showcasing projects, skills, and experience as a Jr. Data Engineer at Hillpointe.
 
-## Technologies Used
+## Tech Stack
 
-- **HTML5** - Semantic markup for structure
-- **CSS3** - Custom styling with CSS variables for theming
-- **JavaScript** - Vanilla JS for interactive elements
-- **Font Awesome** - Icon library for visual elements
-- **Netlify** - Hosting with continuous deployment
+- **React 19** + **TypeScript**
+- **Vite** for fast development and builds
+- **Tailwind CSS** for styling
+- **shadcn/ui** components
 
-## Key Features
+## Development
 
-- **Responsive Design** - Fully responsive layout that adapts to all screen sizes
-- **Dark/Light Mode** - Toggle between color themes with state persistence
-- **Interactive Elements**:
-  - Project carousel with navigation controls
-  - Skill cards with revealing information on hover/touch
-  - Mobile-friendly navigation menu
-  - Smooth scrolling navigation
-- **Contact Form** - Integrated with Netlify functions and Formspree
-- **Optimized Performance** - Fast loading times and smooth animations
-- **Accessibility** - Semantic HTML and proper ARIA attributes
+```bash
+npm install
+npm run dev      # Start dev server at http://localhost:3000
+npm run check    # Type check
+npm run build    # Production build
+npm run lint     # Lint
+```
 
-## Project Sections
+## Projects
 
-- **Hero** - Introduction with gradient background
-- **About** - Personal background and professional summary
-- **Skills** - Technical and soft skills with detailed descriptions
-- **Projects** - Showcase of recent work with links to GitHub repositories
-- **Contact** - Form for direct communication
+Featured work includes data engineering tools, Python automation, and web applications:
 
-## Deployment
+- [PyShip](https://github.com/chrisF943/PyShip) - Retro battle game
+- [fern](https://github.com/chrisF943/fern-password-manager) - Local password manager
+- [Gemini-Python-Tips](https://github.com/chrisF943/Gemini-Python-Tips) - AI-powered tips
+- [Seminar-Project](https://github.com/chrisF943/Seminar-Project) - Data analysis
+- [CEN4802](https://github.com/chrisF943/CEN4802) - CI/CD pipeline
+- [Pdf-Agent](https://github.com/chrisF943/Pdf-Agent) - PDF automation
+- [Folder_tree](https://github.com/chrisF943/Folder_tree) - Directory visualization
+- [Python-Hashing](https://github.com/chrisF943/Python-Hashing) - Data structures
 
-Hosted on Netlify to take advantage of continuous deployment and serverless function features.
+## Contact
 
-Visit my live portfolio [here](https://chrisfaris.netlify.app/)
+- [LinkedIn](https://www.linkedin.com/in/christopher-faris-58145328a/)
+- [GitHub](https://github.com/chrisF943)
+- [Email](mailto:chris.faris@icloud.com)
