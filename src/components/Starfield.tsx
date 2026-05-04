@@ -85,7 +85,7 @@ export default function Starfield() {
       layers.push(layer);
     }
 
-    let shootingStars: ShootingStar[] = [];
+    const shootingStars: ShootingStar[] = [];
 
     const createShootingStar = () => {
       const vx = (Math.random() - 0.5) * 16;
