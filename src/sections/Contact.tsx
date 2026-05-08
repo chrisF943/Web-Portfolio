@@ -157,7 +157,7 @@ export default function Contact() {
             color: 'rgba(122, 122, 158, 0.5)',
           }}
         >
-          &copy; 2026 Christopher Faris &mdash; Built among the stars
+          &copy; 2026 Christopher Faris
         </p>
       </div>
     </section>

@@ -69,7 +69,7 @@ export default function Hero() {
           color: '#5B8DEF',
         }}
       >
-        Jr. Data Engineer at Hillpointe
+        Orlando, FL based Data Engineer
       </p>
 
       <p
@@ -81,8 +81,7 @@ export default function Hero() {
           lineHeight: 1.7,
         }}
       >
-        I build data pipelines and automation tools that power real-world products.
-        Passionate about data engineering, clean architecture, and the craft of software.
+        Currently working on the infrastructure that moves, transforms, and surfaces data across a real estate company's entire operation — from Azure Data Factory pipelines and SQL warehouses to internal monitoring apps built in Node and React. I care about building things that are reliable, well-architected, and actually useful to the people depending on them.
       </p>
 
       <div

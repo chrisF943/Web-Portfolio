@@ -59,18 +59,26 @@ const RADIUS = 520;
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // currentAngle lives in both state (for renders) and a ref (for the loop)
   const [currentAngle, setCurrentAngle] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
+  const currentAngleRef = useRef(0);
+
+  // isDragging: ref for logic (no effect restarts), state only for cursor style
+  const isDraggingRef = useRef(false);
+  const [isDraggingCursor, setIsDraggingCursor] = useState(false);
+
   const dragStartAngleRef = useRef(0);
   const dragStartXRef = useRef(0);
   const velocityRef = useRef(0);
   const lastXRef = useRef(0);
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const animFrameRef = useRef<number>(0);
+
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Intersection observer for entrance
+  // Intersection observer for entrance animation
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -88,65 +96,71 @@ export default function Projects() {
     return Math.round(angle / THETA) * THETA;
   }, []);
 
-  // Auto-rotation and inertia animation loop
+  // Stable animation loop — empty deps means it never restarts, no dt spikes
   useEffect(() => {
     let lastTime = performance.now();
 
     const loop = (time: number) => {
-      const dt = Math.min((time - lastTime) / 16.67, 3); // normalize to ~60fps, cap at 3x
+      const dt = Math.min((time - lastTime) / 16.67, 2);
       lastTime = time;
 
-      setCurrentAngle((prev) => {
-        if (!isDragging) {
-          // Apply inertia
+      if (!isDraggingRef.current) {
+        setCurrentAngle((prev) => {
+          let next: number;
           if (Math.abs(velocityRef.current) > 0.5) {
             velocityRef.current *= 0.92;
-            const newAngle = prev + velocityRef.current * dt;
-            return newAngle;
+            next = prev + velocityRef.current * dt;
           } else {
             velocityRef.current = 0;
-            // Auto-rotate slowly
-            return prev + 0.1 * dt;
+            next = prev + 0.1 * dt;
           }
-        }
-        return prev;
-      });
+          currentAngleRef.current = next;
+          return next;
+        });
+      }
 
       animFrameRef.current = requestAnimationFrame(loop);
     };
 
     animFrameRef.current = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animFrameRef.current);
-  }, [isDragging]);
+  }, []); // stable — never restarts
 
+  // All handlers have empty deps — they read from refs, not stale state
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    setIsDragging(true);
+    if (e.pointerType !== 'mouse') return;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    isDraggingRef.current = true;
+    setIsDraggingCursor(true);
     dragStartXRef.current = e.clientX;
     lastXRef.current = e.clientX;
-    dragStartAngleRef.current = currentAngle;
+    dragStartAngleRef.current = currentAngleRef.current;
     velocityRef.current = 0;
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-  }, [currentAngle]);
+  }, []);
 
   const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging) return;
+    if (!isDraggingRef.current) return;
     const deltaX = e.clientX - dragStartXRef.current;
     velocityRef.current = (e.clientX - lastXRef.current) * 0.3;
     lastXRef.current = e.clientX;
-    setCurrentAngle(dragStartAngleRef.current + deltaX * 0.3);
-  }, [isDragging]);
+    const next = dragStartAngleRef.current + deltaX * 0.3;
+    currentAngleRef.current = next;
+    setCurrentAngle(next);
+  }, []);
 
   const handlePointerUp = useCallback(() => {
-    setIsDragging(false);
-    // After inertia settles, we could snap, but let's let inertia play out
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setIsDraggingCursor(false);
+    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     idleTimerRef.current = setTimeout(() => {
-      // Snap to nearest card when fully idle
       setCurrentAngle((prev) => {
         const snapped = snapToNearest(prev);
+        currentAngleRef.current = snapped;
         return snapped;
       });
-    }, 2000);
+    }, 1500);
   }, [snapToNearest]);
 
   const activeIndex = Math.round((-currentAngle % 360 + 360) % 360 / THETA) % N;
@@ -162,16 +176,6 @@ export default function Projects() {
       }}
     >
       <div id="projects" style={{ scrollMarginTop: '100px' }} />
-      <p
-        className="text-xs uppercase tracking-widest text-center mb-12"
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          color: '#7A7A9E',
-          letterSpacing: '0.2em',
-        }}
-      >
-        SELECTED WORK
-      </p>
 
       <div
         ref={containerRef}
@@ -181,13 +185,12 @@ export default function Projects() {
           width: '100%',
           height: '520px',
           overflow: 'visible',
-          touchAction: 'none',
-          cursor: isDragging ? 'grabbing' : 'grab',
+          cursor: isDraggingCursor ? 'grabbing' : 'grab',
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        onPointerLeave={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       >
         <div
           className="absolute top-1/2 left-1/2"
@@ -197,7 +200,6 @@ export default function Projects() {
             transform: `rotateY(${currentAngle}deg)`,
             width: 0,
             height: 0,
-            transition: isDragging ? 'none' : 'transform 0.1s linear',
           }}
         >
           {PROJECTS.map((project, i) => {
@@ -299,6 +301,7 @@ export default function Projects() {
             }}
             onClick={() => {
               const targetAngle = -i * THETA;
+              currentAngleRef.current = targetAngle;
               setCurrentAngle(targetAngle);
             }}
             aria-label={`Go to project ${i + 1}`}

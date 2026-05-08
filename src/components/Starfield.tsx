@@ -39,10 +39,11 @@ export default function Starfield() {
     let isVisible = true;
 
     const mouse = { x: 0.5, y: 0.5 };
+    const targetMouse = { x: 0.5, y: 0.5 };
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX / window.innerWidth;
-      mouse.y = e.clientY / window.innerHeight;
+      targetMouse.x = e.clientX / window.innerWidth;
+      targetMouse.y = e.clientY / window.innerHeight;
     };
 
     const handleVisibility = () => {
@@ -111,8 +112,12 @@ export default function Starfield() {
       ctx.fillStyle = '#080812';
       ctx.fillRect(0, 0, width, height);
 
-      const offsetX = (mouse.x - 0.5) * 20;
-      const offsetY = (mouse.y - 0.5) * 20;
+      // Smooth interpolation toward target mouse position
+      mouse.x += (targetMouse.x - mouse.x) * 0.03;
+      mouse.y += (targetMouse.y - mouse.y) * 0.03;
+
+      const offsetX = (mouse.x - 0.5) * 8;
+      const offsetY = (mouse.y - 0.5) * 8;
 
       // Draw stars
       for (let li = 0; li < layers.length; li++) {
