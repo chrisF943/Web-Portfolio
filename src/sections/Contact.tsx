@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 
 export default function Contact() {
   const [visible, setVisible] = useState(false);
@@ -20,6 +20,26 @@ export default function Contact() {
 
   const iconButtonClass =
     "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ease-out";
+
+  const hoverEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = '#5B8DEF';
+    e.currentTarget.style.borderColor = 'rgba(91, 141, 239, 0.5)';
+    e.currentTarget.style.background = 'rgba(91, 141, 239, 0.08)';
+    e.currentTarget.style.boxShadow = '0 0 20px rgba(91, 141, 239, 0.15)';
+  };
+
+  const hoverLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = '#7A7A9E';
+    e.currentTarget.style.borderColor = 'rgba(122, 122, 158, 0.3)';
+    e.currentTarget.style.background = 'transparent';
+    e.currentTarget.style.boxShadow = 'none';
+  };
+
+  const iconStyle = {
+    color: '#7A7A9E',
+    background: 'transparent',
+    border: '1px solid rgba(122, 122, 158, 0.3)',
+  };
 
   return (
     <section
@@ -73,73 +93,41 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className={iconButtonClass}
-            style={{
-              color: '#7A7A9E',
-              background: 'transparent',
-              border: '1px solid rgba(122, 122, 158, 0.3)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#5B8DEF';
-              e.currentTarget.style.borderColor = 'rgba(91, 141, 239, 0.5)';
-              e.currentTarget.style.background = 'rgba(91, 141, 239, 0.08)';
-              e.currentTarget.style.boxShadow = '0 0 20px rgba(91, 141, 239, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#7A7A9E';
-              e.currentTarget.style.borderColor = 'rgba(122, 122, 158, 0.3)';
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            style={iconStyle}
+            onMouseEnter={hoverEnter}
+            onMouseLeave={hoverLeave}
           >
             <Linkedin size={24} />
           </a>
           <a
             href="mailto:chris.faris@icloud.com"
             className={iconButtonClass}
-            style={{
-              color: '#7A7A9E',
-              background: 'transparent',
-              border: '1px solid rgba(122, 122, 158, 0.3)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#5B8DEF';
-              e.currentTarget.style.borderColor = 'rgba(91, 141, 239, 0.5)';
-              e.currentTarget.style.background = 'rgba(91, 141, 239, 0.08)';
-              e.currentTarget.style.boxShadow = '0 0 20px rgba(91, 141, 239, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#7A7A9E';
-              e.currentTarget.style.borderColor = 'rgba(122, 122, 158, 0.3)';
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            style={iconStyle}
+            onMouseEnter={hoverEnter}
+            onMouseLeave={hoverLeave}
           >
             <Mail size={24} />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/chrisF943"
             target="_blank"
             rel="noopener noreferrer"
             className={iconButtonClass}
-            style={{
-              color: '#7A7A9E',
-              background: 'transparent',
-              border: '1px solid rgba(122, 122, 158, 0.3)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#5B8DEF';
-              e.currentTarget.style.borderColor = 'rgba(91, 141, 239, 0.5)';
-              e.currentTarget.style.background = 'rgba(91, 141, 239, 0.08)';
-              e.currentTarget.style.boxShadow = '0 0 20px rgba(91, 141, 239, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#7A7A9E';
-              e.currentTarget.style.borderColor = 'rgba(122, 122, 158, 0.3)';
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            style={iconStyle}
+            onMouseEnter={hoverEnter}
+            onMouseLeave={hoverLeave}
           >
             <Github size={24} />
+          </a>
+          <a
+            href="/Christopher_Faris_Resume_bw.pdf"
+            download
+            className={iconButtonClass}
+            style={iconStyle}
+            onMouseEnter={hoverEnter}
+            onMouseLeave={hoverLeave}
+          >
+            <FileText size={24} />
           </a>
         </div>
       </div>

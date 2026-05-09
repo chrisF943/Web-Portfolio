@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 
 export default function Header() {
   const [visible, setVisible] = useState(false);
@@ -16,6 +16,18 @@ export default function Header() {
 
   const iconButtonClass =
     "w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ease-out";
+
+  const hoverEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = '#5B8DEF';
+    e.currentTarget.style.background = 'rgba(91, 141, 239, 0.1)';
+    e.currentTarget.style.boxShadow = '0 0 16px rgba(91, 141, 239, 0.15)';
+  };
+
+  const hoverLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = '#7A7A9E';
+    e.currentTarget.style.background = 'transparent';
+    e.currentTarget.style.boxShadow = 'none';
+  };
 
   return (
     <header
@@ -34,40 +46,18 @@ export default function Header() {
           target="_blank"
           rel="noopener noreferrer"
           className={iconButtonClass}
-          style={{
-            color: '#7A7A9E',
-            background: 'transparent',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#5B8DEF';
-            e.currentTarget.style.background = 'rgba(91, 141, 239, 0.1)';
-            e.currentTarget.style.boxShadow = '0 0 16px rgba(91, 141, 239, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#7A7A9E';
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.boxShadow = 'none';
-          }}
+          style={{ color: '#7A7A9E', background: 'transparent' }}
+          onMouseEnter={hoverEnter}
+          onMouseLeave={hoverLeave}
         >
           <Linkedin size={20} />
         </a>
         <a
           href="mailto:chris.faris@icloud.com"
           className={iconButtonClass}
-          style={{
-            color: '#7A7A9E',
-            background: 'transparent',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#5B8DEF';
-            e.currentTarget.style.background = 'rgba(91, 141, 239, 0.1)';
-            e.currentTarget.style.boxShadow = '0 0 16px rgba(91, 141, 239, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#7A7A9E';
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.boxShadow = 'none';
-          }}
+          style={{ color: '#7A7A9E', background: 'transparent' }}
+          onMouseEnter={hoverEnter}
+          onMouseLeave={hoverLeave}
         >
           <Mail size={20} />
         </a>
@@ -76,22 +66,21 @@ export default function Header() {
           target="_blank"
           rel="noopener noreferrer"
           className={iconButtonClass}
-          style={{
-            color: '#7A7A9E',
-            background: 'transparent',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#5B8DEF';
-            e.currentTarget.style.background = 'rgba(91, 141, 239, 0.1)';
-            e.currentTarget.style.boxShadow = '0 0 16px rgba(91, 141, 239, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#7A7A9E';
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.boxShadow = 'none';
-          }}
+          style={{ color: '#7A7A9E', background: 'transparent' }}
+          onMouseEnter={hoverEnter}
+          onMouseLeave={hoverLeave}
         >
           <Github size={20} />
+        </a>
+        <a
+          href="/Christopher_Faris_Resume_bw.pdf"
+          download
+          className={iconButtonClass}
+          style={{ color: '#7A7A9E', background: 'transparent' }}
+          onMouseEnter={hoverEnter}
+          onMouseLeave={hoverLeave}
+        >
+          <FileText size={20} />
         </a>
       </div>
     </header>

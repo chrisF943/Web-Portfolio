@@ -2,7 +2,7 @@ import Starfield from './components/Starfield';
 import Header from './sections/Header';
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
-import RibbonWave from './sections/RibbonWave';
+import DataPipeline from './sections/RibbonWave';
 import Contact from './sections/Contact';
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <Projects />
-        <RibbonWave />
+        <DataPipeline />
         <Contact />
       </main>
     </div>
