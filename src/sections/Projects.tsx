@@ -38,18 +38,11 @@ const PROJECTS: Project[] = [
     gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a1a2e 50%, #0f3460 100%)',
   },
   {
-    title: 'CEN4802',
-    description: 'Jenkins CI/CD pipeline for a Java app with Docker, DataDog, and automated testing.',
-    link: 'https://github.com/chrisF943/CEN4802',
-    tags: ['Java', 'Maven', 'Jenkins', 'Docker', 'DataDog'],
+    title: 'HomeWave',
+    description: 'macOS music visualizer that reacts to system audio and re-themes itself to the playing Spotify album art.',
+    link: 'https://github.com/chrisF943/home-wave',
+    tags: ['Swift', 'Core Audio', 'JavaScript', 'macOS'],
     gradient: 'linear-gradient(135deg, #16213e 0%, #1a1a2e 100%)',
-  },
-  {
-    title: 'Python-Hashing',
-    description: 'Hash table with linear probing storing Orlando bus stop data.',
-    link: 'https://github.com/chrisF943/Python-Hashing',
-    tags: ['Python', 'Data Structures', 'JSON'],
-    gradient: 'linear-gradient(135deg, #0f3460 0%, #16213e 100%)',
   },
 ];
 
