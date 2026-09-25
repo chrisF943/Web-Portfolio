@@ -49,6 +49,7 @@ const PROJECTS: Project[] = [
 const N = PROJECTS.length;
 const THETA = 360 / N;
 const RADIUS = 520;
+const DRAG_THRESHOLD = 5;
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,6 +66,8 @@ export default function Projects() {
   const dragStartXRef = useRef(0);
   const velocityRef = useRef(0);
   const lastXRef = useRef(0);
+  // true once a press has moved far enough to count as a drag, so the click is suppressed
+  const didDragRef = useRef(false);
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const animFrameRef = useRef<number>(0);
 
@@ -122,8 +125,10 @@ export default function Projects() {
   // All handlers have empty deps — they read from refs, not stale state
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (e.pointerType !== 'mouse') return;
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    // Pointer capture is deferred to handlePointerMove: capturing here would retarget
+    // the click to the container and card links would never fire
     isDraggingRef.current = true;
+    didDragRef.current = false;
     setIsDraggingCursor(true);
     dragStartXRef.current = e.clientX;
     lastXRef.current = e.clientX;
@@ -135,6 +140,11 @@ export default function Projects() {
   const handlePointerMove = useCallback((e: React.PointerEvent) => {
     if (!isDraggingRef.current) return;
     const deltaX = e.clientX - dragStartXRef.current;
+    if (!didDragRef.current) {
+      if (Math.abs(deltaX) < DRAG_THRESHOLD) return;
+      didDragRef.current = true;
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    }
     velocityRef.current = (e.clientX - lastXRef.current) * 0.3;
     lastXRef.current = e.clientX;
     const next = dragStartAngleRef.current + deltaX * 0.3;
@@ -204,9 +214,18 @@ export default function Projects() {
             const blur = frontness < 0.8 ? 1.5 * (1 - frontness) : 0;
 
             return (
-              <div
+              <a
                 key={i}
-                className="absolute rounded-2xl overflow-hidden"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} on GitHub`}
+                tabIndex={frontness > 0.8 ? 0 : -1}
+                draggable={false}
+                onClick={(e) => {
+                  if (didDragRef.current) e.preventDefault();
+                }}
+                className="group absolute block rounded-2xl overflow-hidden"
                 style={{
                   width: '340px',
                   height: '420px',
@@ -232,18 +251,12 @@ export default function Projects() {
 
                 {/* Text area */}
                 <div className="p-6">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-xl font-medium mb-2 transition-colors duration-300 hover:text-[#5B8DEF]"
-                    style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      color: '#E8E6F0',
-                    }}
+                  <h3
+                    className="text-xl font-medium mb-2 text-[#E8E6F0] transition-colors duration-300 group-hover:text-[#5B8DEF]"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
                     {project.title}
-                  </a>
+                  </h3>
                   <p
                     className="text-sm leading-relaxed mb-4 line-clamp-2"
                     style={{
@@ -272,7 +285,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
