@@ -73,7 +73,7 @@ export default function Header() {
           <Github size={20} />
         </a>
         <a
-          href="/Christopher_Faris_Resume_bw.pdf"
+          href="/Christopher_Faris_Resume.pdf"
           download
           className={iconButtonClass}
           style={{ color: '#7A7A9E', background: 'transparent' }}

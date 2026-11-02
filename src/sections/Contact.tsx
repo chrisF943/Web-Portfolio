@@ -120,7 +120,7 @@ export default function Contact() {
             <Github size={24} />
           </a>
           <a
-            href="/Christopher_Faris_Resume_bw.pdf"
+            href="/Christopher_Faris_Resume.pdf"
             download
             className={iconButtonClass}
             style={iconStyle}
